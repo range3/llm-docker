@@ -1,14 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-IMAGE_NAME="llm:latest"
+IMAGE_NAME="ghcr.io/range3/llm:latest"
 CONTAINER_NAME="llm-container"
 
-CACHE_VOLUME="llm-cache"
 CONFIG_VOLUME="llm-config"
 
-docker run --rm -it \
+docker run --rm -i \
   --name "$CONTAINER_NAME" \
-  -v "$CACHE_VOLUME:/home/llm/.cache" \
   -v "$CONFIG_VOLUME:/home/llm/.config" \
   "$IMAGE_NAME" "$@"
