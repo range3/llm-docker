@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+IMAGE_NAME="llm:latest"
+CONTAINER_NAME="llm-container"
+
+CACHE_VOLUME="llm-cache"
+CONFIG_VOLUME="llm-config"
+
+docker run --rm -it \
+  --name "$CONTAINER_NAME" \
+  -v "$CACHE_VOLUME:/home/llm/.cache" \
+  -v "$CONFIG_VOLUME:/home/llm/.config" \
+  "$IMAGE_NAME" "$@"
