@@ -19,7 +19,8 @@ ENV PATH="/home/${USER_NAME}/.local/bin:${PATH}"
 
 RUN pip install -U pip \
     && pip install llm \
-    && llm install llm-gemini
+    && llm install llm-gemini \
+    && llm install llm-jq
 
 ENTRYPOINT ["llm"]
 CMD ["--help"]
